@@ -39,7 +39,7 @@
                 <p>This project was created as part of the interview process at The Ohio State University.
                 It is a full stack web application, using MySQL, Java, the Spring Framework, HTML, CSS, JavaScript, JQuery and Bootstrap.</p>
                 <p><a class="btn btn-primary btn-lg" href="/JobBoard/spring/loadFeed" role="button">See project &raquo;</a></p>
-                <p><a class="btn btn-primary btn-lg" href="http://github.io" role="button">See gitHub &raquo;</a></p>
+                <p><a class="btn btn-primary btn-lg" href="https://github.com/dwyp/Projects/tree/master/JobBoard" role="button">See gitHub &raquo;</a></p>
             </div>
         </div>
 
