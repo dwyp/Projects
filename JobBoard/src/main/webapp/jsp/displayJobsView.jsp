@@ -10,7 +10,7 @@
         <meta  name="viewport" content="width=device­width, initial­scale=1.0">
 
         <!­­ Bootstrap ­­>
-        <link  href="/FlooringMasteryWeb/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link  href="/JobBoard/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <!-- Carousel -->
         <link  href="/JobBoard/css/carousel.css" rel="stylesheet" media="screen">
         <!­­ Tables ­­>

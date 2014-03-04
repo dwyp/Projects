@@ -9,7 +9,7 @@
         <meta  name="viewport" content="width=device­width, initial­scale=1.0">
 
         <!­­ Bootstrap ­­>
-        <link  href="/FlooringMasteryWeb/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link  href="/JobBoard/css/bootstrap.min.css" rel="stylesheet" media="screen">
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>OSU Jobs</title>

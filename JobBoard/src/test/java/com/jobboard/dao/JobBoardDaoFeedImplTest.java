@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
  */
 public class JobBoardDaoFeedImplTest {
     
-    private JobBoardDaoFeedImpl dao = new JobBoardDaoFeedImpl("file:///home/daniel/Dropbox/GitHub/Projects/JobBoard/src/test/resources/all_jobs.atom");
+    private JobBoardDaoFeedImpl dao = new JobBoardDaoFeedImpl("file:///home/daniel/Projects/JobBoard/src/test/resources/all_jobs.atom");
     
     public JobBoardDaoFeedImplTest() {
     }
