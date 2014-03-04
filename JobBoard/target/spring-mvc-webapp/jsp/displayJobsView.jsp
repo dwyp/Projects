@@ -48,21 +48,21 @@
         <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="/JobBoard/images/Buckeyes.jpg"  alt="">
+                    <img src="images/Buckeyes.jpg"  alt="">
                     <div class="container">
                         <div class="carousel-caption">
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="/JobBoard/images/home_osu.gif"  alt="">
+                    <img src="images/home_osu.gif"  alt="">
                     <div class="container">
                         <div class="carousel-caption">
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <img src="/JobBoard/images/OhioState_Logo.jpg" alt="">
+                    <img src="images/OhioState_Logo.jpg" alt="">
                     <div class="container">
                         <div class="carousel-caption">
                         </div>
@@ -75,7 +75,8 @@
         </div><!-- /.carousel -->
 
         <div class="text-center" >
-            <h2>Keyword search:</h2>
+            <h2>Click on the jobs below for more details</h2>
+            <h2>or enter keywords for an OR search:</h2>
             <form method="POST" action="search">
                 <input type="text" name="keywords" value="${keywords}" 
                        placeholder="Enter keywords here" size="40">
@@ -116,9 +117,9 @@
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             <h3 class="modal-title">
-                                                <a href="http://www.jobsatosu.com/postings/${job.number}">${job.title}</a> 
+                                                <a href="http://www.jobsatosu.com/postings/${job.number}" target="_blank">${job.title}</a> 
                                             </h3>
-                                            <p>(link to OSU job post)<p>
+                                            <p>(open a new tab to the OSU job post)<p>
                                         </div>
                                         <div class="modal-body">
                                             <p>${job.content}</p>

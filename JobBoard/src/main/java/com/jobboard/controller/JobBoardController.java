@@ -27,7 +27,7 @@ public class JobBoardController {
         this.databaseDao = dao;
     }
 
-    @RequestMapping(value = "/loadFeed", method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "loadFeed"}, method = RequestMethod.GET)
     public String loadFeed() {
 
         // create an instance of the JobBoardDaoFeedImpl, which loads the feed from the site
