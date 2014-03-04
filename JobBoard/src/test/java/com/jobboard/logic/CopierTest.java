@@ -26,7 +26,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class CopierTest {
 
-    private JobBoardDaoFeedImpl feedDao = new JobBoardDaoFeedImpl("file:///home/daniel/Dropbox/GitHub/DanielWypiszynski/OSU%20Project/JobBoard/src/test/resources/all_jobs.atom");
+    private JobBoardDaoFeedImpl feedDao = new JobBoardDaoFeedImpl("file:///home/daniel/Dropbox/GitHub/Projects/JobBoard/src/test/resources/all_jobs.atom");
     private JobBoardDao databaseDao;
 
     public CopierTest() {
