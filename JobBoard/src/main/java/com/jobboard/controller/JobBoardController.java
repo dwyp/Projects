@@ -4,7 +4,9 @@ import com.jobboard.util.Copier;
 import com.jobboard.dao.JobBoardDao;
 import com.jobboard.dao.JobBoardDaoFeedImpl;
 import com.jobboard.model.JobPost;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +23,7 @@ public class JobBoardController {
 
     @Inject
     public JobBoardController(JobBoardDao dao) {
+        // gets DAO bean from Spring
         this.databaseDao = dao;
     }
 
@@ -32,8 +35,10 @@ public class JobBoardController {
 
         // copy the feed into the database
         Copier copyFeed = new Copier();
-        
+
+        // gets map of the feed and places it in currentJobs
         currentJobs = feedDao.getJobMap();
+        // updates database and returns map of jobs only in the database
         expiredJobs = copyFeed.copyJobMap(feedDao.getJobMap(), databaseDao);
 
         return "redirect:displayJobs";
@@ -42,9 +47,11 @@ public class JobBoardController {
     @RequestMapping(value = "/displayJobs", method = RequestMethod.GET)
     public String displayJobs(Map<String, Object> model) {
 
-        // get map from database, convert to array to pass to jsp
+        // converts currentJobs to array to pass to jsp
         model.put("jobs", currentJobs.values().toArray(new JobPost[0]));
+        // converts expiredJobs to array to pass to jsp
         model.put("expiredJobs", expiredJobs.values().toArray(new JobPost[0]));
+
         return "displayJobsView";
     }
 
@@ -53,15 +60,36 @@ public class JobBoardController {
             HttpServletRequest req,
             HttpServletResponse res) {
 
+        // gets keywords parameter and turns into array
         String[] keywords = req.getParameter("keywords").split(" ");
-        StringBuilder keywordsString = new StringBuilder();
-        for (String s : keywords) {
-            keywordsString.append(s);
-            keywordsString.append(" ");
+
+        // gets all jobs from database that match keywords
+        JobPost[] searchResults = databaseDao.search(keywords);
+
+        // will hold search results jobs that are expired
+        Map<Integer, JobPost> searchedExpiredJobs = new HashMap<>();
+
+        // will hold search results jobs that are current
+        Map<Integer, JobPost> searchedCurrentJobs = new HashMap<>();
+
+        // gets set of keys from current job to compare  against
+        Set<Integer> currentKeys = currentJobs.keySet();
+
+        // seperates search results into current and expired jobs
+        for (JobPost job : searchResults) {
+            if (currentKeys.contains(job.getNumber())) {
+                searchedCurrentJobs.put(job.getNumber(), job);
+            } else {
+                searchedExpiredJobs.put(job.getNumber(), job);
+            }
         }
 
-        model.put("jobs", databaseDao.search(keywords));
-        model.put("keywords", keywordsString.toString());
+        // converts to arrays and places search results in model for view
+        model.put("jobs", searchedCurrentJobs.values().toArray(new JobPost[0]));
+        model.put("expiredJobs", searchedExpiredJobs.values().toArray(new JobPost[0]));
+        
+        // places "keywords" string in model to refill search bar
+        model.put("keywords", req.getParameter("keywords"));
 
         return "displayJobsView";
     }

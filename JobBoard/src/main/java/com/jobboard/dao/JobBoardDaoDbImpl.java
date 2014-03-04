@@ -163,12 +163,14 @@ public class JobBoardDaoDbImpl implements JobBoardDao {
     @Override
     public JobPost[] search(String[] keywords) {
 
+        // checks for blank search terms
         if (keywords.length > 0 && !keywords[0].equals("")) {
             // string builder to create regexp search term
             StringBuilder sb = new StringBuilder();
             
             sb.append(keywords[0]);
 
+            // inserts | for OR function in REGEXP
             for (int i = 1; i < keywords.length; i++) {
                 sb.append("|");
                 sb.append(keywords[i]);
@@ -176,9 +178,11 @@ public class JobBoardDaoDbImpl implements JobBoardDao {
             }
             String regexp = sb.toString();
             
+            // OR query with search terms for all columns
             List<JobPost> jlist = jdbcTemplate.query(SQL_SEARCH, new JobMapper(), regexp, regexp, regexp, regexp);
             return jlist.toArray(new JobPost[0]);
         } else {
+            // query that returns all database entries in response to blank search terms
             List<JobPost> jlist = jdbcTemplate.query(SQL_LIST_JOBS, new JobMapper());
             return jlist.toArray(new JobPost[0]);
         }
@@ -191,6 +195,7 @@ public class JobBoardDaoDbImpl implements JobBoardDao {
         public JobPost mapRow(ResultSet rs, int rowNum) throws SQLException {
             JobPost job = new JobPost();
 
+            // maps columns to object
             job.setNumber(Integer.parseInt(rs.getString("number")));
             job.setPublished(rs.getString("published"));
             job.setUpdated(rs.getString("updated"));

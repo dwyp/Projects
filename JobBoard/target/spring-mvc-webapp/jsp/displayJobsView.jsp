@@ -37,7 +37,7 @@
                         <li><a href="#">Top</a></li>
                         <li><a href="#bottom">Bottom</a></li>
                     </ul>
-                     <form class="navbar-form pull-right" role="search" method="POST" action="search">
+                    <form class="navbar-form pull-right" role="search" method="POST" action="search">
                         <input class="form-control" type="text" name="keywords" 
                                value="${keywords}" placeholder="Enter keywords here">
                     </form>
@@ -80,6 +80,9 @@
                 <input type="text" name="keywords" value="${keywords}" 
                        placeholder="Enter keywords here" size="40">
                 <input type="submit" value="Submit"> <br/><br/>
+            </form>
+            <form method="GET" action="displayJobs">
+                <input type="submit" value="Clear Search"> <br/><br/>
             </form>
         </div>
 
@@ -176,5 +179,11 @@
         <!­­ Include all compiled plugins, or include individual files as needed ­­>
         <script src="/JobBoard/js/bootstrap.js"></script>
         <script src="/JobBoard/js/table.js"></script>
+        <script type="text/javascript">
+            var $ = jQuery.noConflict();
+            $(document).ready(function() {
+                $('#myCarousel').carousel({interval: 3000, cycle: true});
+            });
+        </script>
     </body>
 </html>

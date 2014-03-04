@@ -30,13 +30,19 @@ import java.util.logging.Logger;
 public class JobBoardDaoFeedImpl implements JobBoardDao {
 
     private URL url;
+    private File file;
     private XmlReader reader = null;
     private SyndFeed feed = null;
-    
+
     public JobBoardDaoFeedImpl(String urlString) {
         try {
-            url = new URL(urlString);
-            reader = new XmlReader(url);
+            if (urlString.contains("http")) {
+                url = new URL(urlString);
+                reader = new XmlReader(url);
+            } else {
+                file = new File(urlString);
+                reader = new XmlReader(file);
+            }
             feed = new SyndFeedInput().build(reader);
 
         } catch (MalformedURLException ex) {
@@ -73,22 +79,22 @@ public class JobBoardDaoFeedImpl implements JobBoardDao {
     public Map<Integer, JobPost> getJobMap() {
 
         Map<Integer, JobPost> jobMap = new HashMap<>();
-        
+
         for (Iterator i = feed.getEntries().iterator(); i.hasNext();) {
             SyndEntry entry = (SyndEntry) i.next();
-            
+
             JobPost job = new JobPost();
-            
+
             for (SyndContentImpl content : (List<SyndContentImpl>) entry.getContents()) {
                 job.setContent(content.getValue());
             }
-            
+
             job.setAuthor(entry.getAuthor());
             job.setPublished(entry.getPublishedDate().toString());
             job.setUpdated(entry.getUpdatedDate().toString());
             job.setNumber(Integer.parseInt(entry.getUri()));
             job.setTitle(entry.getTitle());
-            
+
             jobMap.put(job.getNumber(), job);
         }
 
