@@ -115,8 +115,8 @@
                     <tbody>
                         <c:forEach var="job" items="${jobs}">
                             <tr class="clickableRow" data-toggle="modal" data-target="#modal_${job.number}">
-                                <td><b>${job.title}</b></td>
-                                <td>${job.author}</td>
+                                <td style="text-align: left"><b>${job.title}</b></td>
+                                <td style="text-align: left">${job.author}</td>
                                 <td>${job.number}</td>
                                 <td>${job.published}</td>
                             </tr>
@@ -156,8 +156,8 @@
                     <tbody>
                         <c:forEach var="job" items="${expiredJobs}">
                             <tr class="clickableRow" data-toggle="modal" data-target="#modal_${job.number}">
-                                <td><b>${job.title}</b></td>
-                                <td>${job.author}</td>
+                                <td style="text-align: left"><b>${job.title}</b></td>
+                                <td style="text-align: left">${job.author}</td>
                                 <td>${job.number}</td>
                                 <td>${job.published}</td>
                             </tr>

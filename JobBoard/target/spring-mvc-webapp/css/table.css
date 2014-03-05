@@ -2,10 +2,20 @@
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: lightgrey;
 }
-th, td {
+
+.table>thead>tr>th {
 	padding: 2px 15px 2px 15px;
         text-align: center;
 }
+
+.table-left { 
+    text-align: left;    
+}
+
+td {
+    text-align: center;
+}
+
 thead th {
 	background-color:#990000;
 }
@@ -15,7 +25,6 @@ th.table-sortable {
 	background-image:url("/JobBoard/icons/01_unsorted.gif");
 	background-position:center left;
 	background-repeat:no-repeat;
-	padding-left:20px;
 }
 th.table-sorted-asc {
 	background-image:url("/JobBoard/icons/07_ascending.gif");
