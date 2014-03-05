@@ -1,14 +1,13 @@
 /* Striping */
-tr.alternate {
-	background-color:#ffffcc;
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: lightgrey;
 }
 th, td {
-	border:1px solid #aaaaaa;
 	padding: 2px 15px 2px 15px;
         text-align: center;
 }
 thead th {
-	background-color:#ccccff;
+	background-color:#990000;
 }
 /* Sorting */
 th.table-sortable {

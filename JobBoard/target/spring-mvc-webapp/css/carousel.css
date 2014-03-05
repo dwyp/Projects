@@ -1,5 +1,10 @@
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
+#carouselButtons {
+    margin-left: 100px;
+    position: absolute;
+    bottom: 0px;
+}
 
 /* Carousel base class */
 .carousel {
