@@ -181,10 +181,13 @@
         <script src="/JobBoard/js/bootstrap.js"></script>
         <script src="/JobBoard/js/table.js"></script>
         <script type="text/javascript">
-            var $ = jQuery.noConflict();
             $(document).ready(function() {
-                $('#myCarousel').carousel({interval: 3000, cycle: true});
+                $('.carousel').carousel({
+                    interval: 3000,
+                    pause: false
+                });
+                $('.carousel').carousel('cycle');
             });
-        </script>
+        </script> 
     </body>
 </html>
