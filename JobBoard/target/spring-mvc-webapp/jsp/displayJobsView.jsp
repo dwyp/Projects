@@ -69,8 +69,12 @@
                     </div>
                 </div>
             </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
 
             <div id="carouselButtons">
                 <button id="playButton" type="button" class="btn btn-default btn-xs">
@@ -84,8 +88,7 @@
     </div><!-- /.carousel -->
 
     <div class="text-center" id="search">
-        <h2>Click on the jobs below for more details</h2>
-        <h2>or enter keywords for an OR search:</h2>
+        <h2>Click on the jobs below for more details or enter keywords for an OR search:</h2>
         <form method="POST" action="search">
             <input type="text" name="keywords" value="${keywords}" 
                    placeholder="Enter keywords here" size="40">

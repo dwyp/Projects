@@ -23,22 +23,17 @@ thead th {
 th.table-sortable {
 	cursor:pointer;
 	background-image:url("/JobBoard/icons/01_unsorted.gif");
-	background-position:center left;
+	background-position: 1% center;
 	background-repeat:no-repeat;
 }
 th.table-sorted-asc {
 	background-image:url("/JobBoard/icons/07_ascending.gif");
-	background-position:center left;
+	background-position: 1% center;
 	background-repeat:no-repeat;
 }
 th.table-sorted-desc {
 	background-image:url("/JobBoard/icons/07_descending.gif");
-	background-position:center left;
-	background-repeat:no-repeat;
-}
-th.table-filtered {
-	background-image:url("filter.gif");
-	background-position:center left;
+	background-position: 1% center;;
 	background-repeat:no-repeat;
 }
 select.table-autofilter {
