@@ -89,14 +89,16 @@
 
     <div class="text-center" id="search">
         <h2>Click on the jobs below for more details or enter keywords for an OR search:</h2>
-        <form method="POST" action="search">
-            <input type="text" name="keywords" value="${keywords}" 
-                   placeholder="Enter keywords here" size="40">
-            <input type="submit" value="Submit"> <br/><br/>
-        </form>
-        <form method="GET" action="displayJobs">
-            <input type="submit" value="Clear Search"> <br/><br/>
-        </form>
+        <div class="putInline">
+             <form class="putInline" method="POST" action="search">
+                <input type="text" name="keywords" value="${keywords}" 
+                       placeholder="Enter keywords here" size="40">
+                <input type="submit" value="Submit">
+            </form>
+            <form class="putInline" method="GET" action="displayJobs">
+                <input type="submit" value="Clear Search">
+            </form>
+        </div>
     </div>
 
     <div class="container" style="padding-bottom:200px">
