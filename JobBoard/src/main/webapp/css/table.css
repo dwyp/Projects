@@ -6,10 +6,7 @@
 .table>thead>tr>th {
 	padding: 2px 15px 2px 15px;
         text-align: center;
-}
-
-.table-left { 
-    text-align: left;    
+        color: grey;
 }
 
 td {

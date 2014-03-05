@@ -131,7 +131,7 @@
                                         <h3 class="modal-title">
                                             <a href="http://www.jobsatosu.com/postings/${job.number}" target="_blank">${job.title}</a> 
                                         </h3>
-                                        <p>(open a new tab to the OSU job post)<p>
+                                        <p>(click to open a new tab to the OSU job post)<p>
                                     </div>
                                     <div class="modal-body">
                                         <p>${job.content}</p>
