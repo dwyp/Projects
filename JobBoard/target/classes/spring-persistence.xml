@@ -28,7 +28,11 @@
         <property name="username" value="${jdbc.username}" />
         <property name="password" value="${jdbc.password}" />
         <property name="initialSize" value="5" />
-        <property name="maxActive" value="10" />
+        <property name="maxActive" value="20" />
+        <property name="maxIdle" value="10" />
+        <property name="maxWait" value="120" />
+        <property name="testWhileIdle" value="true" />
+        <property name="validationQuery" value="SELECT 1" />
     </bean>
     
     <bean id="jdbcTemplate"
