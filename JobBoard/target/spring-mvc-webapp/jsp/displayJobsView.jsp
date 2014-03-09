@@ -14,7 +14,7 @@
         <!­­ Tables ­­>
         <link  href="/JobBoard/css/table.css" rel="stylesheet" media="screen">
 
-        <meta  name="viewport" content="width=device­width, initial­scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>OSU Jobs</title>
     </head>
@@ -89,7 +89,7 @@
     <div class="text-center" id="search">
         <h2>Click on the jobs below for more details or enter keywords for an OR search:</h2>
         <div class="putInline">
-             <form class="putInline" method="POST" action="search">
+            <form class="putInline" method="POST" action="search">
                 <input type="text" name="keywords" value="${keywords}" 
                        placeholder="Enter keywords here" size="40">
                 <input type="submit" value="Submit">
