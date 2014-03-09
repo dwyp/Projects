@@ -7,8 +7,6 @@
 
 <html>
     <head>
-        <meta  name="viewport" content="width=device­width, initial­scale=1.0">
-
         <!­­ Bootstrap ­­>
         <link  href="/JobBoard/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <!-- Carousel -->
@@ -16,6 +14,7 @@
         <!­­ Tables ­­>
         <link  href="/JobBoard/css/table.css" rel="stylesheet" media="screen">
 
+        <meta  name="viewport" content="width=device­width, initial­scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>OSU Jobs</title>
     </head>

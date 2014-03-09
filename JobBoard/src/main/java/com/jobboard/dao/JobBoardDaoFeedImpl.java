@@ -34,24 +34,16 @@ public class JobBoardDaoFeedImpl implements JobBoardDao {
     private XmlReader reader = null;
     private SyndFeed feed = null;
 
-    public JobBoardDaoFeedImpl(String urlString) {
-        try {
-            if (urlString.contains("http")) {
-                url = new URL(urlString);
-                reader = new XmlReader(url);
-            } else {
-                file = new File(urlString);
-                reader = new XmlReader(file);
-            }
-            feed = new SyndFeedInput().build(reader);
+    public JobBoardDaoFeedImpl(String urlString) throws MalformedURLException, IOException, IllegalArgumentException, FeedException {
 
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(JobBoardDaoFeedImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(JobBoardDaoFeedImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalArgumentException | FeedException ex) {
-            Logger.getLogger(JobBoardDaoFeedImpl.class.getName()).log(Level.SEVERE, null, ex);
+        if (urlString.contains("http")) {
+            url = new URL(urlString);
+            reader = new XmlReader(url);
+        } else {
+            file = new File(urlString);
+            reader = new XmlReader(file);
         }
+        feed = new SyndFeedInput().build(reader);
     }
 
     @Override

@@ -7,8 +7,12 @@
 package com.jobboard.dao;
 
 import com.jobboard.model.JobPost;
+import com.sun.syndication.io.FeedException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,9 +26,18 @@ import static org.junit.Assert.*;
  */
 public class JobBoardDaoFeedImplTest {
     
-    private JobBoardDaoFeedImpl dao = new JobBoardDaoFeedImpl("all_jobs.atom");
+    private JobBoardDaoFeedImpl dao;
     
     public JobBoardDaoFeedImplTest() {
+        try {
+            this.dao = new JobBoardDaoFeedImpl("all_jobs.atom");
+        } catch (IOException ex) {
+            Logger.getLogger(JobBoardDaoFeedImplTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(JobBoardDaoFeedImplTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FeedException ex) {
+            Logger.getLogger(JobBoardDaoFeedImplTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @BeforeClass

@@ -9,7 +9,11 @@ import com.jobboard.util.Copier;
 import com.jobboard.dao.JobBoardDao;
 import com.jobboard.dao.JobBoardDaoFeedImpl;
 import com.jobboard.model.JobPost;
+import com.sun.syndication.io.FeedException;
+import java.io.IOException;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -26,10 +30,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class CopierTest {
 
-    private JobBoardDaoFeedImpl feedDao = new JobBoardDaoFeedImpl("all_jobs.atom");
+    private JobBoardDaoFeedImpl feedDao;
     private JobBoardDao databaseDao;
 
     public CopierTest() {
+        try {
+            this.feedDao = new JobBoardDaoFeedImpl("all_jobs.atom");
+        } catch (IOException ex) {
+            Logger.getLogger(CopierTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(CopierTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FeedException ex) {
+            Logger.getLogger(CopierTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @BeforeClass
