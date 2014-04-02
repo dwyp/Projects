@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('#searchButton').click(function() {
 
         $.ajax({
-            url: "http://localhost:8080/ContactListMVC/spring/rest/contact/" + $('#search-id').val()
+            url: "http://coffeeandgems.com/ContactListMVC/spring/rest/contact/" + $('#search-id').val()
         }).then(function(data) {
             $('#contact-name').text('');
             $('#contact-phone').text('');
@@ -17,7 +17,7 @@ $(document).ready(function() {
 
         $('#addButton').click(function() {
             $.ajax({'type': 'POST',
-                'url': 'http://localhost:8080/ContactListMVC/spring/rest/contact',
+                'url': 'http://coffeeandgems.com/ContactListMVC/spring/rest/contact',
                 data: JSON.stringify({
                     name: $('#add-name').val(),
                     phone: $('#add-phone').val(),
@@ -38,7 +38,7 @@ $(document).ready(function() {
     });
     $('#editButton').click(function() {
         $.ajax({'type': 'PUT',
-            'url': 'http://localhost:8080/ContactListMVC/spring/rest/contact/' + $('#edit-contactId').val(),
+            'url': 'http://coffeeandgems.com/ContactListMVC/spring/rest/contact/' + $('#edit-contactId').val(),
             data: JSON.stringify({
                 name: $('#edit-name').val(),
                 phone: $('#edit-phone').val(),
@@ -61,7 +61,7 @@ $(document).ready(function() {
 });
 function getEditContact(element) {
     $.ajax({
-        url: "http://localhost:8080/ContactListMVC/spring/rest/contact/" + element.getAttribute('href')
+        url: "http:/coffeeandgems.com/ContactListMVC/spring/rest/contact/" + element.getAttribute('href')
     }).then(function(data) {
         $('#edit-name').val(data.name);
         $('#edit-phone').val(data.phone);
@@ -72,7 +72,7 @@ function getEditContact(element) {
 
 function getContact(element) {
     $.ajax({
-        url: "http://localhost:8080/ContactListMVC/spring/rest/contact/" + element.getAttribute('href')
+        url: "http://coffeeandgems.com/ContactListMVC/spring/rest/contact/" + element.getAttribute('href')
     }).then(function(data) {
         $('#contact-name').text(data.name);
         $('#contact-phone').text(data.phone);
@@ -83,7 +83,7 @@ function getContact(element) {
 
 function deleteContact(element) {
     $.ajax({'type': 'DELETE',
-        'url': 'http://localhost:8080/ContactListMVC/spring/rest/contact/'
+        'url': 'http://coffeeandgems.com/ContactListMVC/spring/rest/contact/'
                 + element.getAttribute('href')
     }).then(function(status) {
         loadContacts();
@@ -93,7 +93,7 @@ function deleteContact(element) {
 function loadContacts() {
     $('#contact-list').empty();
     $.ajax({
-        url: "http://localhost:8080/ContactListMVC/spring/rest/contacts/"
+        url: "http://coffeeandgems.com/ContactListMVC/spring/rest/contacts/"
     }).then(function(data, status) {
         $.each(data, function(index, contact) {
             $('#contact-list').append('<p><a onclick="getContact(this); return false;" href="'
