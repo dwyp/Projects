@@ -1,16 +1,20 @@
 $(document).ready(function() {
     loadContacts();
     $('#searchButton').click(function() {
-        
+
         $.ajax({
             url: "http://localhost:8080/ContactListMVC/spring/rest/contact/" + $('#search-id').val()
         }).then(function(data) {
+            $('#contact-name').text('');
+            $('#contact-phone').text('');
+            $('#contact-email').text('');
+            $('#contact-id').text('');
             $('#contact-name').text(data.name);
             $('#contact-phone').text(data.phone);
             $('#contact-email').text(data.email);
             $('#contact-id').text(data.contactId);
         });
-        
+
         $('#addButton').click(function() {
             $.ajax({'type': 'POST',
                 'url': 'http://localhost:8080/ContactListMVC/spring/rest/contact',

@@ -32,12 +32,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp">Home</a></li>
-                        <li><a href="spring/contactList">Contacts</a></li>
-                        <li><a href="spring/searchContactForm">Search</a></li>
-                        <li><a href="spring/displayUserList">Users</a></li>
-                        <li><a href="spring/changePasswordForm">Change Password</a></li>
-                        <li><a href="j_spring_security_logout">Logout</a></li>
+                        
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
